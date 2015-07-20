@@ -1,0 +1,23 @@
+{
+  "name": "cmpsc-checklist",
+  "version": "0.0.0",
+  "authors": [
+    "Berty Ruan"
+  ],
+  "description": "PSU Computer Science course requirement checklist",
+  "moduleType": [
+    "globals"
+  ],
+  "main": ["src/index.html", "src/js/app.js"],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "private": true,
+  "dependencies": {
+    "angular": "~1.4.3"
+  }
+}
