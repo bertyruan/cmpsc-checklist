@@ -23,8 +23,8 @@
           <td>schedule</td>
         </tr>
       </thead>
-      <tbody ng-repeat="course in courses">
-        <tr>
+      <tbody>
+        <tr ng-repeat="course in courses">
           <td>{{course.name}}</td>
           <td>{{course.number}}</td>
           <td>{{course.credits}}</td>
@@ -35,10 +35,17 @@
    </table>
   </div>
 
+  <div ng-controller="testCase"> 
+    <div ng-repeat='test in tests'>
+      <x-required-table info='test'></x-required-table>
+    </div>
+  </div>
+
 </body>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers/controllers.js"></script>
+  <script src="js/directives/tableDirective.js"></script>
   <script src="js/services/cmpscStorage.js"></script>
 </html>

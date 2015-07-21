@@ -14,4 +14,12 @@ courseCheckList.controller('requiredCourses', ['$scope', 'localStorage',
 courseCheckList.controller('parseStorage', ['localStorage', function(localStorage) {
 		//do business logic here
 		console.log(localStorage);
+}]);
+
+courseCheckList.controller('testCase', ['$scope', 'localStorage',
+	function($scope, localStorage){
+		$scope.myName = {name: 'Berty Ruan'};
+		$scope.tests = localStorage.dummyData;
 	}]);
+
+

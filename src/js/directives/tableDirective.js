@@ -1,12 +1,11 @@
-var standardTable = angular.module('standardTable', []);
-
-standardTable.directive('requiredTable', function(){
+var tableTemplate = angular.module('tableTemplate', []);
+tableTemplate.directive('requiredTable', function() {
 	return {
 		restrict: 'E',
 		scope: {
-			courseInfo: '=info'
+			courseName: '=info'
 		},
-		templateURL: '../partials/standard-table.html'
-
+		template: 'These are the course names {{courseName.name}}'
 	};
 });
+
