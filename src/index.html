@@ -13,6 +13,26 @@
 
   <h1>PSU Comp Sci Course Requirements Checklist</h1>
   <div ng-controller="requiredCourses">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td>name</td>
+          <td>number</td>
+          <td>credits</td>
+          <td>done</td>
+          <td>schedule</td>
+        </tr>
+      </thead>
+      <tbody ng-repeat="course in courses">
+        <tr>
+          <td>{{course.name}}</td>
+          <td>{{course.number}}</td>
+          <td>{{course.credits}}</td>
+          <td>{{course.done}}</td>
+          <td>{{course.schedule}}</td>
+        </tr>
+      </tbody>
+   </table>
   </div>
 
 </body>
