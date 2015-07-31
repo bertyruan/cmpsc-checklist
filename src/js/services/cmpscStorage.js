@@ -13,25 +13,25 @@ cmpscStorage.factory('localStorage', function(){
 				'number': '121',
 				'credits': 3,
 				'done': false,
-				'schedule': false 
+				'scheduled': false 
 			},
 			{
 				'name': 'Intermediate Programming',
 				'number': '122',
 				'credits': 3,
 				'done': false,
-				'schedule': false 
+				'scheduled': false 
 			},
 			{
 				'name': 'Object Oriented Programming with Web-Based Applications',
 				'number': '221',
 				'credits': 3,
 				'done': false,
-				'schedule': false 
+				'scheduled': false 
 			}
 		],
 
-		_getFromLocalStorage: function() {
+/*		_getFromLocalStorage: function() {
 			return JSON.parse(localStorage.getItem(STORAGE_ID || dummyData));
 		},
 
@@ -45,7 +45,7 @@ cmpscStorage.factory('localStorage', function(){
 
 		update: function(newHistory) {
 			this.history = newHistory;
-		}
+		}*/
 	};
 
 	return store;
