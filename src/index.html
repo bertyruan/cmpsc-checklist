@@ -12,14 +12,15 @@
 <body  ng-app="main">
 
   <h1>PSU Comp Sci Course Requirements Checklist</h1>
-  <div ng-controller="testCase"> 
-  <table class="table table-bordered">
+  <div ng-controller="courses"> 
+  <table class="table table-bordered compress">
     <thead>
-        <tr>
-          <tr headers></tr>
-        </tr>
+        <tr headers></tr>
     </thead>
-    <tr ng-repeat='test in tests' required-course="test"></tr>
+    <tbody>
+      <tr ng-repeat='course in courses' required-course="course"></tr>
+      <tr degree-audit></tr>
+    </tbody>
   </table>
   </div>
 
