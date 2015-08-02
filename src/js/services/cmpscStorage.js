@@ -12,7 +12,7 @@ cmpscStorage.factory('localStorage', function(){
 				'name': 'Introduction to Programming Techniques',
 				'number': '121',
 				'credits': 3,
-				'completed': false,
+				'completed': true,
 				'scheduled': false 
 			},
 			{
@@ -20,13 +20,13 @@ cmpscStorage.factory('localStorage', function(){
 				'number': '122',
 				'credits': 3,
 				'completed': false,
-				'scheduled': false 
+				'scheduled': true 
 			},
 			{
 				'name': 'Object Oriented Programming with Web-Based Applications',
 				'number': '221',
 				'credits': 3,
-				'completed': false,
+				'completed': true,
 				'scheduled': false 
 			}
 		],
