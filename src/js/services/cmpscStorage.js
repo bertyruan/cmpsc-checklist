@@ -1,18 +1,14 @@
-var cmpscStorage = angular.module('courseService', []);
+var cmpscStorage = angular.module('courseService', ['ngStorage']);
 
-cmpscStorage.factory('localStorage', function(){
+cmpscStorage.factory('data', ['$localStorage', function($localStorage){
 
-	var STORAGE_ID = 'course-history';
-
-	var store = {
-		history: [],
-
-		dummyData: [
+	var defaults =  $localStorage.$default({
+		required: [
 			{
 				'name': 'Introduction to Programming Techniques',
 				'number': '121',
 				'credits': 3,
-				'completed': true,
+				'completed': false,
 				'scheduled': false 
 			},
 			{
@@ -20,34 +16,31 @@ cmpscStorage.factory('localStorage', function(){
 				'number': '122',
 				'credits': 3,
 				'completed': false,
-				'scheduled': true 
+				'scheduled': false 
 			},
 			{
 				'name': 'Object Oriented Programming with Web-Based Applications',
 				'number': '221',
 				'credits': 3,
-				'completed': true,
+				'completed': false,
 				'scheduled': false 
 			}
-		],
+		]
+	});999
 
-/*		_getFromLocalStorage: function() {
-			return JSON.parse(localStorage.getItem(STORAGE_ID || dummyData));
+	var store = {
+		get: function(item) {
+			if(angular.isUndefined($localStorage.required))	{
+				$localStorage = defaults;
+			}
+			return $localStorage[item];
 		},
 
-		_saveToLocalStorage: function(newHistory) {
-			localStorage.setItem(STORAGE_ID, JSON.stringify(newHistory));
-		},
-
-		get: function() {
-			angular.copy(this._getFromLocalStorage(), this.history);
-		},
-
-		update: function(newHistory) {
-			this.history = newHistory;
-		}*/
+		reset: function() {
+			$localStorage = defaults;
+		}
 	};
 
 	return store;
 
-});
+}]);
