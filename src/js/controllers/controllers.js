@@ -2,7 +2,8 @@ var courseCheckList = angular.module('courseController', []);
 
 courseCheckList.controller('courses', ['$scope', 'data',
 	function($scope, data){
-		var courses = $scope.courses = data.get('required');
+		var self = this;
+		var courses = $scope.courses = data.get('core');
 
 		var init = function(){
 			$scope.toggleCompleted();
@@ -10,17 +11,26 @@ courseCheckList.controller('courses', ['$scope', 'data',
 			sumCredits();
 		};
 
-		
-		$scope.toggleCompleted = function() {		
-			$scope.completed = courses[0]['completed'] + courses[1]['completed'] + courses[2]['completed'];
+		var sum = function(list, key, countCredits) {
+			var marker = 0;
+
+			angular.forEach(list, function(value){
+				marker += value['credits'] *  (countCredits * value[key] + !countCredits * 1);
+			})	
+
+			$scope[key] = marker;
 		};
+
+		$scope.toggleCompleted = function() {
+			sum(courses, 'completed', true);
+		}
 
 		$scope.toggleScheduled = function() {
-			$scope.scheduled = courses[0]['scheduled'] + courses[1]['scheduled'] + courses[2]['scheduled'];
-		};
-
-		sumCredits = function() {
-			$scope.credits = courses[0]['credits'] + courses[1]['credits'] + courses[2]['credits'];
+			sum(courses, 'scheduled', true);
+		}
+		
+		var sumCredits = function() {
+			sum(courses, 'credits', false);
 		};
 
 		init();
