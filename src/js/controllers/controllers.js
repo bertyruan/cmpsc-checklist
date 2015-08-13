@@ -4,7 +4,7 @@ courseCheckList.controller('courses', ['$scope', 'data',
 	function($scope, data){
 		var self = this;
 		var courses = $scope.courses = data.get('core');
-
+		
 		var init = function(){
 			$scope.toggleCompleted();
 			$scope.toggleScheduled();
@@ -32,6 +32,15 @@ courseCheckList.controller('courses', ['$scope', 'data',
 		var sumCredits = function() {
 			sum(courses, 'credits', false);
 		};
+
+		$scope.reset = function() {
+			data.reset();
+			courses = $scope.courses = data.get('core');
+			console.log(data.get('core'));
+			init();
+			//courses = $scope.courses = data.get('core');
+		};
+
 
 		init();
 		/*

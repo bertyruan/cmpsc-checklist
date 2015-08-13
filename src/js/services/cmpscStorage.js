@@ -2,7 +2,16 @@ var cmpscStorage = angular.module('courseService', ['ngStorage']);
 
 cmpscStorage.factory('data', ['$localStorage', function($localStorage){
 
-	var defaults =  $localStorage.$default({
+	function sleep(milliseconds) {
+	  var start = new Date().getTime();
+	  for (var i = 0; i < 1e7; i++) {
+	    if ((new Date().getTime() - start) > milliseconds){
+	      break;
+	    }
+	  }
+	};
+
+	var courses = {
 		core: [
 			{
 				'name': 'Introduction to Programming Techniques',
@@ -16,7 +25,7 @@ cmpscStorage.factory('data', ['$localStorage', function($localStorage){
 				'number': '122',
 				'credits': 3,
 				'completed': false,
-				'scheduled': false 
+				'scheduled': false
 			},
 			{
 				'name': 'Object Oriented Programming with Web-Based Applications',
@@ -82,18 +91,27 @@ cmpscStorage.factory('data', ['$localStorage', function($localStorage){
 				'scheduled': false 
 			}
 		]
-	});
+	};
 
+	
+	var defaults = $localStorage = $localStorage.$default(courses);
 	var store = {
 		get: function(item) {
-			if(angular.isUndefined($localStorage.required))	{
-				$localStorage = defaults;
-			}
+			if(angular.isUndefined($localStorage.core))
+				defaults = $localStorage =  $localStorage.$default(courses);
 			return $localStorage[item];
 		},
 
 		reset: function() {
-			$localStorage = defaults;
+			$localStorage.$reset();
+			$localStorage.$reset(courses);
+		
+			console.log("cmpscStorage.js: reset()");
+		
+		},
+
+		init: function() {
+			defaults = $localStorage =  $localStorage.$default(courses);
 		}
 	};
 
